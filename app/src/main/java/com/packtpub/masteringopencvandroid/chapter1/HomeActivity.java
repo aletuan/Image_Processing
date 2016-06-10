@@ -1,12 +1,16 @@
 package com.packtpub.masteringopencvandroid.chapter1;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends Activity {
+
+    public final static String TAG = "Chapter1::HomeActivity";
+    public final static String INTENT_STRING = "ACTION_MODE";
 
     public static final int MEAN_BLUR           = 1;
     public static final int MEDIAN_BLUR         = 2;
@@ -15,11 +19,11 @@ public class HomeActivity extends AppCompatActivity {
     public static final int DILATE              = 5;
     public static final int ERODE               = 6;
     public static final int THRESHOLD           = 7;
-    public static final int ADAPTIVE_THRESHOLD = 8;
-
+    public static final int ADAPTIVE_THRESHOLD  = 8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "onCreated is called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
@@ -46,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.putExtra("ACTION_MODE", MEDIAN_BLUR);
+                i.putExtra(INTENT_STRING, MEDIAN_BLUR);
                 startActivity(i);
             }
         });
@@ -55,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.putExtra("ACTION_MODE", GAUSSIAN_BLUR);
+                i.putExtra(INTENT_STRING, GAUSSIAN_BLUR);
                 startActivity(i);
             }
         });
@@ -64,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.putExtra("ACTION_MODE", SHARPEN);
+                i.putExtra(INTENT_STRING, SHARPEN);
                 startActivity(i);
             }
         });
@@ -73,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.putExtra("ACTION_MODE", DILATE);
+                i.putExtra(INTENT_STRING, DILATE);
                 startActivity(i);
             }
         });
@@ -82,7 +86,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.putExtra("ACTION_MODE", ERODE);
+                i.putExtra(INTENT_STRING, ERODE);
                 startActivity(i);
             }
         });
@@ -91,7 +95,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.putExtra("ACTION_MODE", THRESHOLD);
+                i.putExtra(INTENT_STRING, THRESHOLD);
                 startActivity(i);
             }
         });
@@ -100,7 +104,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                i.putExtra("ACTION_MODE", ADAPTIVE_THRESHOLD);
+                i.putExtra(INTENT_STRING, ADAPTIVE_THRESHOLD);
                 startActivity(i);
             }
         });
